@@ -21,7 +21,7 @@
     <meta name="og:description" content="Only those who will risk going too far can possibly find out how far one can go.">
 </head>
 <body>
-
+    <audio id="scapeSound" src="4894.mp3" loop="loop"></audio>
     <main>
         <header>
             <iframe src="https://scapes.punkscape.xyz/?simple&autoplay&autoscale=false&chapter-switch=false&sound-control=false#4894" frameborder="0" tabindex="-1"></iframe>
@@ -43,8 +43,23 @@
                     <a href="https://github.com/makingmemark" target="_blank">Github</a>
                 </li>
             </ul>
+             <span class="audio"><img onclick="playAudio()" src = "audio.svg" alt="play/pause audio"/></span>
         </section>
     </main>
 
 </body>
+<script>
+    var x = document.getElementById("scapeSound"); 
+    var audioButton = document.querySelector(".audio");
+    
+    function playAudio() { 
+        if(x.paused) {
+            x.play();
+            audioButton.classList.add("on");
+        } else {
+            x.pause();
+            audioButton.classList.remove("on");
+        }
+    } 
+</script>
 </html>

@@ -142,3 +142,15 @@ ul li a:active {
     box-shadow: 1rem 1.45rem 5rem 3.9rem rgb(95 45 170 / 13%);
   }
 }
+
+.audio{
+  float: right;
+  margin: 0 0 10px;
+  width: 15px;
+  cursor: pointer;
+  opacity: 0.5
+}
+
+.audio.on{
+  opacity: 1;
+}
