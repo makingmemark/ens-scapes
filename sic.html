@@ -11,15 +11,15 @@
 
 <body>
     <main>
-        <header class="search">
+        <div class="search">
             <div class="search-container">
-                    <p>Enter the wallet address (0x or ENS) that you used to inscribed on the RELIC contract</p>
+                    <p>Enter the wallet address (0x or ENS) that you used to inscribed on the <strong><i>Relic</i></strong> contract</p>
                     <input type="text" id="walletAddress" placeholder="Your wallet address">
                     <button id="searchButton">Search</button>
                     <div id="inscriptionResult"></div>
                 
             </div>
-        </header>
+        </div>
         <header>
             <figure></figure>
             <p>
@@ -258,14 +258,14 @@
             }
         }
 
-        header.search{
+        div.search{
             margin:0 0 3rem;
             padding: 2rem 0;
             border-bottom: 1px solid lightgray;
             height: auto;
         }
 
-        header.search p{
+        div.search p{
             margin: 1rem 0;
         }
 
