@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <title>Snowfro's Final Squiggle Mint Message</title>
+    <title>Squiggle Inscription Checker &amp; Snowfro's Final Squiggle Mint Message</title>
 </head>
 
 <body>
@@ -45,6 +45,7 @@
                     href="https://en.wikipedia.org/wiki/InterPlanetary_File_System">interplanetary file storage
                     (IFPS)</a> and is thus immutable to changes and will remain online as long as at least one person
                 pins it to their IPFS node.</p>
+            <p>This website was originally created by the legend <a href="https://twitter.com/jalil_eth" target="_blank">jalil.eth</a> and was then updated by <a href="https://twitter.com/marka_eth" target="_blank">marka.eth</a> to include the Squiggle Inscription Checker (SIC).</p>
         </footer>
     </main>
 
@@ -3268,7 +3269,9 @@
             // const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key].toLowerCase() === address);
             const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key] === address);
 
-            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `Inscription ID: ${inscriptionId} <br />Now input it in the mint() function of this <a target="_blank" href="https://etherscan.io/address/0x9b917686dd68b68a780cb8bf70af46617a7b3f80#writeContract#F2">contract</a>` : 'Address not found';
+            // document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `Inscription ID: ${inscriptionId} <br />Now input it in the mint() function of this <a target="_blank" href="https://etherscan.io/address/0x9b917686dd68b68a780cb8bf70af46617a7b3f80#writeContract#F2">contract</a>` : 'Address not found';
+
+            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />What next? Stay tuned... ` : 'Address not found';
 
         }
 
