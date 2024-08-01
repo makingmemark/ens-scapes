@@ -3268,7 +3268,7 @@
             // const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key].toLowerCase() === address);
             const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key] === address);
 
-            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />Now input it in the mint() function of this <a target="_blank" href="https://etherscan.io/address/0xf7ed7bd9824ada3a2c6e753ce10ca61aedd63fad#writeContract#F3">contract</a>` : 'Address not found';
+            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />Now input it in the mint() function of this <a style="font-weight: bold; color: black;" target="_blank" href="https://etherscan.io/address/0xf7ed7bd9824ada3a2c6e753ce10ca61aedd63fad#writeContract#F3">contract</a>` : 'Address not found';
 
             // document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />What next? Stay tuned... ` : 'Address not found';
 
