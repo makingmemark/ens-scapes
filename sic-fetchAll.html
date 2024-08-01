@@ -13,7 +13,8 @@
     <main>
         <div class="search">
             <div class="search-container">
-                <p>Enter the wallet address (0x or ENS) that you used to inscribe on the <a href="https://etherscan.io/address/0x9b917686DD68B68A780cB8Bf70aF46617A7b3f80" target="_blank" style="font-weight: bold; color: black;">Relic</a> contract</p>
+                <p>Enter the wallet address (0x or ENS) that you used to inscribe on the <strong><i>Relic</i></strong>
+                    contract</p>
                 <input type="text" id="walletAddress" placeholder="Your wallet address">
                 <button id="searchButton">Search</button>
                 <div id="inscriptionResult"></div>
@@ -124,20 +125,20 @@
             return inscriptions;
         }
 
-        // async function fetchAllInscriptions() {
-        //     let allInscriptions = {};
-        //     let startIndex = 2850;
-        //     for (let i = startIndex; i < totalInscriptions; i += batchSize) {
-        //         const end = Math.min(i + batchSize - 1, totalInscriptions - 1);
-        //         const inscriptions = await fetchInscriptionsBatch(i, end);
-        //         allInscriptions = { ...allInscriptions, ...inscriptions };
-        //         if (end < totalInscriptions - 1) {
-        //             console.log(`Waiting for 60 seconds before next batch...`);
-        //             await new Promise(resolve => setTimeout(resolve, 60000)); // 60 seconds delay
-        //         }
-        //     }
-        //     console.log('All inscriptions fetched:', JSON.stringify(allInscriptions));
-        // }
+        async function fetchAllInscriptions() {
+            let allInscriptions = {};
+            let startIndex = 2850;
+            for (let i = startIndex; i < totalInscriptions; i += batchSize) {
+                const end = Math.min(i + batchSize - 1, totalInscriptions - 1);
+                const inscriptions = await fetchInscriptionsBatch(i, end);
+                allInscriptions = { ...allInscriptions, ...inscriptions };
+                if (end < totalInscriptions - 1) {
+                    console.log(`Waiting for 60 seconds before next batch...`);
+                    await new Promise(resolve => setTimeout(resolve, 60000)); // 60 seconds delay
+                }
+            }
+            console.log('All inscriptions fetched:', JSON.stringify(allInscriptions));
+        }
 
 
         const inscriptions = {
@@ -3268,9 +3269,9 @@
             // const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key].toLowerCase() === address);
             const inscriptionId = Object.keys(inscriptions).find(key => inscriptions[key] === address);
 
-            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />Now input it in the mint() function of this <a target="_blank" href="https://etherscan.io/address/0xf7ed7bd9824ada3a2c6e753ce10ca61aedd63fad#writeContract#F3">contract</a>` : 'Address not found';
+            // document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `Inscription ID: ${inscriptionId} <br />Now input it in the mint() function of this <a target="_blank" href="https://etherscan.io/address/0x9b917686dd68b68a780cb8bf70af46617a7b3f80#writeContract#F2">contract</a>` : 'Address not found';
 
-            // document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />What next? Stay tuned... ` : 'Address not found';
+            document.getElementById('inscriptionResult').innerHTML = inscriptionId ? `<strong>Inscription ID: ${inscriptionId} </strong><br />What next? Stay tuned... ` : 'Address not found';
 
         }
 
