@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squiggle Farewell Chart</title>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+         :root {
+            font-family: Inter, sans-serif;
+            font-feature-settings: 'liga' 1, 'calt' 1;
+            font-weight: 500;
+            line-height: 1.618;
+        }
+
+        @supports (font-variation-settings: normal) {
+            :root {
+                font-family: InterVariable, sans-serif;
+            }
+        }
+        body {
+            width: 20000px;  /* Your chart width */
+            height: 100vh;  /* Viewport height */
+            overflow-x: scroll;  /* Enable horizontal scrolling */
+            background-color: black;
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden;
+            overflow-x: scroll; 
+        }
+
+        svg {
+            margin: 0 100px;
+        }
+
+        svg circle{
+            cursor: pointer;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            min-width: 200px;
+            font-size: 12px;
+            pointer-events: none;  /* Make the tooltip ignore mouse events */
+            opacity: 0;  /* Hidden by default */
+            transition: opacity 0.2s ease;
+            text-align: center;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <svg width="20000" height="700"></svg>
+    <div class="tooltip" id="tooltip"></div>
+    <script src="squiggle-chart.js"></script>
+    <script>
+        let scrollAmount = 0;
+        let scrolling = false;
+
+        window.addEventListener('wheel', function(event) {
+            event.preventDefault();  // Prevent default vertical scrolling
+
+            // Accumulate the scroll delta
+            scrollAmount += event.deltaY;
+
+            // If not currently scrolling, start the smooth scroll
+            if (!scrolling) {
+                smoothScroll();
+            }
+        }, { passive: false });  // Prevent default behavior
+
+        function smoothScroll() {
+            scrolling = true;
+
+            // Calculate how much to scroll in this frame
+            const scrollStep = scrollAmount * 0.1;  // Control the speed and smoothness with this factor
+            window.scrollBy({
+                left: scrollStep,  // Scroll by the calculated amount
+                behavior: 'auto'  // We're handling the smoothness manually
+            });
+
+            // Reduce the accumulated scroll amount
+            scrollAmount -= scrollStep;
+
+            // If there's still some scrolling left to do, continue
+            if (Math.abs(scrollAmount) > 0.5) {
+                requestAnimationFrame(smoothScroll);  // Keep scrolling until the accumulated amount is almost zero
+            } else {
+                // Stop scrolling
+                scrollAmount = 0;
+                scrolling = false;
+            }
+        }
+    </script>
+    
+</body>
+</html>
