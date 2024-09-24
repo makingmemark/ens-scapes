@@ -1,6 +1,6 @@
 const circleRadius = 10;
 const circleStrokeWidth = 3;
-const animDuration = 60000;  // Animation duration in milliseconds
+const animDuration = 50000;  // Animation duration in milliseconds
 const tooltip = document.getElementById('tooltip');
 
 // Ensure the window is scrolled to the start initially
@@ -277,9 +277,9 @@ function easeInOutQuad(t) {
 
 
 // // // Wait for 3 seconds before starting the smooth scroll
-// setTimeout(() => {
-//     console.log('timeout')
-//     smoothScrollLeftToRight(animDuration);  // Scroll smoothly over X seconds
-// }, 3000);  // Wait for 3 seconds
+setTimeout(() => {
+    console.log('timeout')
+    smoothScrollLeftToRight(animDuration);  // Scroll smoothly over X seconds
+}, 3000);  // Wait for 3 seconds
 
 
